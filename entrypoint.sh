@@ -47,12 +47,14 @@ cd "${GITHUB_WORKSPACE}" || exit 2
 [[ -d .gentoo ]] || die "No .gentoo directory in workspace root"
 
 # Find the ebuild template and get its category, package and name
+infomsg "Seraching for the ebuild template"
 ebuild_path=$(find_ebuild_template)
 ebuild_cat=$(get_ebuild_cat "${ebuild_path}")
 ebuild_pkg=$(get_ebuild_pkg "${ebuild_path}")
 ebuild_name=$(get_ebuild_name "${ebuild_path}")
 
 # Work out from the tag what version we are releasing.
+infomsg "Determining package version from tag"
 ebuild_ver=$(get_ebuild_ver "${GITHUB_REF}")
 
 # Calculate overlay branch name
