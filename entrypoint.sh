@@ -107,17 +107,11 @@ git_add_files
 # Commit the new ebuild.
 #git_commit "Automated release of ${ebuild_cat}/${ebuild_pkg} version ${ebuild_ver}"
 
-# Push git repo branch
-#git_push "${overlay_branch}"
-
-infomsg "Setting upstream branch"
-git branch --set-upstream-to="github/${overlay_branch}"
-
 infomsg "Committing new ebuild"
 pkgdev commit -m "Automated release of ${ebuild_cat}/${ebuild_pkg} version ${ebuild_ver}"
 
-infomsg "Pushing to git repository"
-pkgdev push
+# Push git repo branch
+git_push "${overlay_branch}"
 
 # Create a pull request
 if [[ -n "${INPUT_AUTH_TOKEN}" ]]; then
