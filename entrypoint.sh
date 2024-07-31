@@ -100,13 +100,22 @@ create_new_ebuild "${ebuild_cat}" "${ebuild_pkg}" "${ebuild_ver}" "${ebuild_path
 git_add_files
 
 # Check it with repoman
-repoman_check
+#repoman_check
 
 # Commit the new ebuild.
-git_commit "Automated release of ${ebuild_cat}/${ebuild_pkg} version ${ebuild_ver}"
+#git_commit "Automated release of ${ebuild_cat}/${ebuild_pkg} version ${ebuild_ver}"
 
 # Push git repo branch
-git_push "${overlay_branch}"
+#git_push "${overlay_branch}"
+
+infomsg "Setting upstream branch"
+git branch --set-upstream-to="github/${overlay_branch}"
+
+infomsg "Committing new ebuild"
+pkgdev commit -m "Automated release of ${ebuild_cat}/${ebuild_pkg} version ${ebuild_ver}"
+
+infomsg "Pushing to git repository"
+pkgdev push
 
 # Create a pull request
 if [[ -n "${INPUT_AUTH_TOKEN}" ]]; then
