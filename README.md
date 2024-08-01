@@ -1,7 +1,11 @@
-# action-ebuild-release
+# rust-pycargoebuild-release
 
-Automatically create an ebuild from a template and deploy it to a repository whenever a new
+Automatically create and update ebuild from a template and deploy it to a repository whenever a new
 package is released.
+
+This is a fork of [`aciton-ebuild-release`](https://github.com/JohnTheCoolingFan/action-ebuild-release)
+
+The examples are outdated and are for a non-rust application, TODO.
 
 ## Functionality
 
