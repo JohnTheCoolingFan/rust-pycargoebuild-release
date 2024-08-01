@@ -67,6 +67,9 @@ echo "    for ${ebuild_pkg}"
 echo "      version ${ebuild_ver}"
 echo "        with name ${ebuild_name}"
 
+infomsg "Calling pycargoebuild --inplace to update the ebuild"
+pycargoebuild --inplace "${ebuild_path}"
+
 # Configure ssh
 configure_ssh "${INPUT_DEPLOY_KEY}"
 
