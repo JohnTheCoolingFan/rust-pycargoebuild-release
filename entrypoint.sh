@@ -100,6 +100,9 @@ fi
 # Create the new ebuild - $ebuild_ver version.
 create_new_ebuild "${ebuild_cat}" "${ebuild_pkg}" "${ebuild_ver}" "${ebuild_path}" "${repo_name}"
 
+# Check with pkgcheck
+pkgcheck scan
+
 # Add it to git
 git_add_files
 
