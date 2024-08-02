@@ -92,8 +92,10 @@ check_ebuild_category "${ebuild_cat}"
 # Copy everything from the template to the new ebuild directory.
 copy_ebuild_directory "${ebuild_cat}" "${ebuild_pkg}"
 
-# Create the new ebuild - 9999 live version.
-create_live_ebuild "${ebuild_cat}" "${ebuild_pkg}" "${ebuild_name}"
+if [[ "${INPUT_NO_LIVE_EBUILD}" != "true" ]]; then
+    # Create the new ebuild - 9999 live version.
+    create_live_ebuild "${ebuild_cat}" "${ebuild_pkg}" "${ebuild_name}"
+fi
 
 # Create the new ebuild - $ebuild_ver version.
 create_new_ebuild "${ebuild_cat}" "${ebuild_pkg}" "${ebuild_ver}" "${ebuild_path}" "${repo_name}"

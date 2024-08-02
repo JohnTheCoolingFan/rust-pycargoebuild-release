@@ -17,6 +17,10 @@ inputs:
     description: 'This is a package only ebuild for upstream source code.'
     required: false
     default: false
+  no_live_ebuild:
+    description: 'Do not generate and publish a live (9999) ebuild to the overlay'
+    required: false
+    default: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
